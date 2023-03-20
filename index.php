@@ -3,7 +3,7 @@
     require_once 'PersonList.php';
 
     // создание экземпляра по существующему id
-    $person = new Person('Jn', 2, "Ace", "2002-06-27", -3, "Brest");
+    $person = new Person(1, 'Thomas', "Gold", "2002-06-27", 1, "Brest");
     // сохранение его в бд
     $person->saveToDB();
 
@@ -15,7 +15,7 @@
     var_dump($person->getFormattedPerson());
 
     // 2 задание
-    $list = new PersonList("id", ">=", "1");
+    $list = new PersonList('id >= 0');
     var_dump($list->select());
 
     //$list->deleteByIdList();

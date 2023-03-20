@@ -11,14 +11,14 @@
     class PersonList {
         public $idList;
 
-        public function __construct($field = null, $condition = null, $value = null)
+        public function __construct($term = null)
         {
             
 
             try {
                 $conn = new PDO("mysql:host=localhost;dbname=slmax", "root", "");
 
-                $sql = $field != null ? "SELECT id FROM Person WHERE $field $condition '$value'" : "SELECT id FROM Person";
+                $sql = $term != null ? "SELECT id FROM Person WHERE " . explode(' ', $term)[0] . explode(' ', $term)[1] . "'" . explode(' ', $term)[2] . "'" : "SELECT id FROM Person";
 
                 $result = $conn->query($sql);
 
